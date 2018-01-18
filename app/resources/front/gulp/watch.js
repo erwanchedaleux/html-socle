@@ -31,4 +31,10 @@ module.exports = function( gulp, pkg, config ) {
             ], gulp.series( 'allcss', 'inlinecss', 'notifyStylus' ) );
     } );
 
+    gulp.task( 'watchTwig', function() {
+        gulp.watch( [
+                config.path.resources.src + '**/*.twig'
+            ], gulp.series( 'render-html', 'notifyTwig' ) );
+    } );
+
 };

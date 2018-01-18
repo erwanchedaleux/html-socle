@@ -25,9 +25,7 @@ require( './gulp/debug' )( gulp, pkg, config  );
 require( './gulp/img-optimization' )( gulp, pkg, config  );
 
 gulp.task( 'twig', gulp.series( 'render-html' ) );
-// gulp.task( 'twig-optimization-patch', gulp.series( 'html-optimization-patch' ) );
-// gulp.task( 'twig-optimization-minor', gulp.series( 'html-optimization-minor' ) );
-// gulp.task( 'twig-optimization-major', gulp.series( 'html-optimization-major' ) );
+gulp.task( 'twig-optimization', gulp.series( 'render-html-optimization' ) );
 
 gulp.task( 'css', gulp.parallel( 'allcss', 'inlinecss' ) );
 gulp.task( 'css-optimization', gulp.parallel( 'cssmin', 'inline-cssmin' ) );
@@ -37,11 +35,11 @@ gulp.task( 'scripts-optimization', gulp.parallel( 'uglify-main', 'uglify-scripts
 
 gulp.task( 'img-optimization', gulp.parallel( 'optimize-img' ) );
 
-gulp.task( 'watch', gulp.parallel( 'watchJS_Browserify', 'watchJS_Main', 'watchJS_Lib', 'watchJS_Inline', 'watchStylus', 'refreshDebugModeDevelop' ) );
+gulp.task( 'watch', gulp.parallel( 'watchJS_Browserify', 'watchJS_Main', 'watchJS_Lib', 'watchJS_Inline', 'watchStylus', 'watchTwig', 'refreshDebugModeDevelop' ) );
 gulp.task( 'default', gulp.series( 'eslint', 'modernizr', 'clean', 'twig', 'css', 'scripts', 'notifyBuild' ) );
 gulp.task( 'develop', gulp.series( 'default', 'watch' ) );
 
 
-gulp.task( 'releasePatch', gulp.series( 'eslint', 'modernizr', 'clean', 'css', 'scripts', 'strip-code', gulp.parallel( 'css-optimization', 'scripts-optimization' ), 'notifyRelease', 'versionPatch', 'refreshDebugModeRelease', 'sizereport' ) );
+gulp.task( 'releasePatch', gulp.series( 'eslint', 'modernizr', 'clean', 'css', 'scripts', 'strip-code', gulp.parallel( 'css-optimization', 'scripts-optimization' ), 'notifyRelease', 'versionPatch', 'refreshDebugModeRelease', 'sizereport', 'twig-optimization' ) );
 gulp.task( 'releaseMinor', gulp.series( 'eslint', 'modernizr', 'clean', 'css', 'scripts', 'strip-code', gulp.parallel( 'css-optimization', 'scripts-optimization' ), 'notifyRelease', 'versionMinor', 'refreshDebugModeRelease', 'sizereport' ) );
 gulp.task( 'releaseMajor', gulp.series( 'eslint', 'modernizr', 'clean', 'css', 'scripts', 'strip-code', gulp.parallel( 'css-optimization', 'scripts-optimization' ), 'notifyRelease', 'versionMajor', 'refreshDebugModeRelease', 'sizereport' ) );

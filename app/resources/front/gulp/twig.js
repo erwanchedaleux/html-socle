@@ -8,10 +8,10 @@ module.exports = function( gulp, pkg, config ) {
     filter                              = require( 'gulp-filter' );
     htmlbeautify                        = require( 'gulp-html-beautify' );
 
-    gulp.task( 'render-html', function() {
+    function htmlRendering( version ) {
         return gulp
             .src( [
-                config.path.resources.src + '*.njk',
+                config.path.resources.src + '*.twig',
             ] )
             .pipe( plumber() )
             .pipe( filter( [
@@ -22,13 +22,34 @@ module.exports = function( gulp, pkg, config ) {
             ] ) )
             .pipe( twig( {
                 data: {
-                    version: Date.now()
+                    version: version
                 }
             } ) )
-            .pipe( rename( { extname: '.html' } ) )
+            .pipe( rename( { extname: '.html' } ) );
+    }
+
+    gulp.task( 'render-html', function() {
+        return htmlRendering( Date.now() )
             .pipe( htmlbeautify( {
                     "indent_char": '\t',
                     "indent_size": 1
+                } )
+            )
+            .pipe( gulp.dest( config.path.web.base ) );
+        }
+    );
+
+    gulp.task( 'render-html-optimization', function() {
+        return htmlRendering( pkg.version )
+            .pipe( htmlbeautify( {
+                    "indent_char": '\t',
+                    "indent_size": 1,
+                    "max_preserve_newlines": 0,
+                    "unformatted": [
+                        "style",
+                        "script",
+                        "noscript"
+                    ]
                 } )
             )
             .pipe( gulp.dest( config.path.web.base ) );

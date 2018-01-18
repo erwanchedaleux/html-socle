@@ -38,3 +38,4 @@ scrutinizer.phar
 composer.phar
 Thumbs.db
 Vagrantfile
+cgi-bin

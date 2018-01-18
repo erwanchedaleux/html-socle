@@ -7,9 +7,9 @@ module.exports = function( gulp, pkg, config ) {
 
     function UpdateDebugMode( debugMode ) {
 
-        return gulp.src( './../../config/config.yml' )
-                .pipe( replace( /debug: (.*)/g, "debug: " + debugMode) )
-                .pipe( gulp.dest( './../../config/' ) )
+        return gulp.src( './package.json' )
+                .pipe( replace( /"debug": (.*)/g, '"debug":                            ' + debugMode + ', ') )
+                .pipe( gulp.dest( './' ) )
                 .pipe( savefile() );
     }
 

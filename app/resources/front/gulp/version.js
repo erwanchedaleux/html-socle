@@ -1,9 +1,12 @@
 module.exports = function( gulp, pkg, config ) {
-    var bump, semver, merge;
+    var bump, semver, merge, replace, saveFIle;
 
-    bump                           = require( 'gulp-bump' );
-    semver                         = require( 'semver' );
-    merge                          = require( 'merge-stream' );
+    bump                                = require( 'gulp-bump' );
+    semver                              = require( 'semver' );
+    merge                               = require( 'merge-stream' );
+
+    replace                             = require( 'gulp-replace' );
+    savefile                            = require( 'gulp-savefile' );
 
 
     function UpdateVersion( newVer ) {
@@ -11,10 +14,6 @@ module.exports = function( gulp, pkg, config ) {
                     gulp.src( './package.json' )
                         .pipe( bump( { "version": newVer } ) )
                         .pipe( gulp.dest( './' ) ),
-
-                    gulp.src( './../../config/config.yml' )
-                        .pipe( bump( { "version": newVer } ) )
-                        .pipe( gulp.dest( './../../config/' ) ),
 
                     gulp.src( config.path.web.js + '*.js' )
                         .pipe( bump( { "key": "@version:\\s+", "version": newVer } ) )

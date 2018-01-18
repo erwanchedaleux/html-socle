@@ -6,9 +6,11 @@
             "css"                       : "css/",
             "cssImg"                    : "css/css-img/",
             "imgNotOptimized"           : "img/img_not_optimized/",
-            "imgOptimized"              : "img/img_optimized/"
+            "imgOptimized"              : "img/img_optimized/",
+            "src"                       : "src/"
         },
         "web":  {
+            "web"                       : "../../../web/", 
             "base"                      : "../../../web/",
             "system"                    : "../../../web/system/",
             "js"                        : "../../../web/assets/js/",

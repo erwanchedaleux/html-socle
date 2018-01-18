@@ -42,4 +42,8 @@ module.exports = function( gulp, pkg ) {
         return getNotification( 'Stylus done!' );
     } );
 
+    gulp.task( 'notifyTwig', function() {
+        return getNotification( 'Twig done!' );
+    } );
+
 };
