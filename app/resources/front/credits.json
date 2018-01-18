@@ -1,0 +1,60 @@
+{
+    "css": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "",
+        "Thanks to \n *",
+        "Manually forked from Normalize.css",
+        "normalize.css v5.0.0 | MIT | (https://github.com/necolas/normalize.css)",
+        "\n*/\n\n"
+    ],
+    "scripts": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "\n*/\n\n"
+    ],
+    "library": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "",
+        "Thanks to \n *",
+        "jQuery JavaScript Library v3.2.1 | MIT | jQuery Foundation (http://jquery.com/)",
+        "jQuery Cookie Plugin v1.4.1 | MIT | https://github.com/carhartl/jquery-cookie",
+        "Lazysizes v4.0.1 | MIT | https://github.com/aFarkas/lazysizes",
+        "\n*/\n\n"
+    ],
+    "main": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "",
+        "Thanks to \n *",
+        "Modernizr | MIT (http://modernizr.com/)",
+        "Bootup | MIT (https://github.com/sdussaut/bootup.js)",
+        "\n*/\n\n"
+    ],
+    "generic": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "\n*/\n\n"
+    ],
+    "picturefill": [
+        "/*!",
+        "<%= title %>",
+        "@author: <%= author.name %>",
+        "@version: <%= version %>",
+        "",
+        "Thanks to \n *",
+        "picturefill | MIT (https://scottjehl.github.io/picturefill/) | Gecko-Picture",
+        "\n*/\n\n"
+    ]
+}

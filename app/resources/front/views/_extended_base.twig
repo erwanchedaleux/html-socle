@@ -1,0 +1,19 @@
+{% extends '_base.twig' %}
+
+{% block global_content %}
+    <div id="main">
+        <div class="site-wrapper">
+            {% block header %}
+                {% include 'partials/_header.twig' %}
+            {% endblock header %}
+            {% block content '' %}
+        </div>
+        {%- block footer -%}
+            {% include 'partials/_footer.twig' %}
+        {% endblock footer %}
+        {%- block cookies %}
+            {% include 'partials/_cookies.twig' %}
+        {% endblock cookies %}
+    </div>
+
+{% endblock global_content %}

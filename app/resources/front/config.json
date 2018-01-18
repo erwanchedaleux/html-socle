@@ -1,0 +1,19 @@
+{
+    "path": {
+        "resources": {
+            "data"                      : "data/",
+            "js"                        : "js/",
+            "css"                       : "css/",
+            "cssImg"                    : "css/css-img/",
+            "imgNotOptimized"           : "img/img_not_optimized/",
+            "imgOptimized"              : "img/img_optimized/"
+        },
+        "web":  {
+            "base"                      : "../../../web/",
+            "system"                    : "../../../web/system/",
+            "js"                        : "../../../web/assets/js/",
+            "css"                       : "../../../web/assets/css/",
+            "media"                     : "../../../web/assets/media/"
+        }
+    }
+}

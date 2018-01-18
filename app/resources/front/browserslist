@@ -1,0 +1,11 @@
+# Browsers that we support
+
+Chrome >= 49
+Firefox >= 45
+Safari >= 8
+Opera >= 35
+IE >= 10
+Edge >= 12
+iOS >= 8
+Android >= 4.4
+ExplorerMobile >= 10

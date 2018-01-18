@@ -1,0 +1,71 @@
+/***************************************/
+
+html
+body
+    overflow-x                          hidden
+
+html
+body
+#main
+    width                               100%
+    height                              100%
+    min-width                           320px
+
+body
+    position                            relative
+
+#main
+    font-size                           1.4rem
+    font-2()
+
+.site-wrapper
+    min-height                          100%
+    margin-bottom                       -($footerHeight)
+
+.site-content
+    padding                             20px 0
+
+.inner
+    max-width                           $innerWidth
+    margin                              0 auto
+    padding                             0 10px
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightTablet)
+
+        &:after
+            height                      $footerHeightTablet
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    html
+    body
+        overflow-x                      initial
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightDesktop)
+
+        &:after
+            height                      $footerHeightDesktop
+
+    .site-content
+        padding                         20px 0
+
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightLarge)
+
+        &:after
+            height                      $footerHeightLarge
+
+    .inner
+        max-width                       $largeScreenContentMaxWidth

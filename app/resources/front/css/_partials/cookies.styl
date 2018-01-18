@@ -1,0 +1,74 @@
+/***************************************/
+
+.site-cookies
+    display                             none
+    position                            fixed
+    z-index                             100
+    bottom                              0
+    left                                0
+    background-color                    $color4
+    color                               $color2
+    padding                             10px
+    width                               100%
+
+    &.active
+        display                         table
+
+.sc-text
+    display                             table-cell
+    vertical-align                      middle
+
+.sc-paragraph
+    display                             inline
+
+.sc-lnk
+    color                               $color2
+    text-decoration                     underline
+
+.sc-btn
+    display                             table-cell
+    vertical-align                      middle
+    text-align                          center
+
+.scb-close
+    position                            relative
+    z-index                             1
+    width                               30px
+    height                              @width
+    padding                             0
+    border                              none
+    background-color                    transparent
+    padding                             5px 0
+    cursor                              pointer
+    transition3()
+
+.scb-bar
+    position                            absolute
+    left                                0
+    display                             block
+    width                               30px
+    height                              2px
+    background-color                    $color2
+    top                                 14px
+    left                                0
+
+    &:nth-child(1)
+        transform                       rotate(45deg)
+
+    &:nth-child(2)
+        transform                       rotate(-45deg)
+
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .site-cookies
+        position                        relative
+
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )

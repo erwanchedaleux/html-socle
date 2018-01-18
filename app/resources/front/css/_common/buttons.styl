@@ -1,0 +1,108 @@
+/********************************/
+
+[class^="btn-"]
+[class*=" btn-"]
+a[class^="btn-"]
+a[class*=" btn-"]
+button[type="submit"]
+    display                             inline-block
+    text-align                          center
+    vertical-align                      middle
+    user-select                         none
+    border-width                        1px
+    border-style                        solid
+    padding                             12px 15px
+    font-size                           1.4rem
+    overflow                            hidden
+    touch-action                        manipulation
+    text-decoration                     none
+    cursor                              pointer
+    transform                           scale(1)
+    border-radius                       0
+    transition3()
+
+.btn-1
+a.btn-1
+    background-color                    transparent
+    border-color                        $color3
+    color                               $color3
+
+    &:hover
+    &:focus
+    &.active
+        background-color                $color3
+        border-color                    $color3
+        color                           $color2
+
+.btn-2
+a.btn-2
+    background-color                    $color3
+    border-color                        $color3
+    color                               $color2
+
+    &:hover
+    &:focus
+    &.active
+        background-color                $color4
+        border-color                    $color4
+        color                           $color2
+
+.btn-3
+a.btn-3
+    background-color                    transparent
+    border-color                        $color2
+    color                               $color3
+
+    &:hover
+    &:focus
+    &.active
+        background-color                $color2
+        color                           $color3
+
+.btn-4
+a.btn-4
+    background-color                    transparent
+    border-color                        $color11
+    color                               $color11
+
+    &:hover
+    &:focus
+    &.active
+        background-color                $color11
+        color                           $color2
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         10px 20px
+        font-size                       1.4rem
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         10px 25px
+        font-size                       1.6rem
+
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         15px 30px
+        font-size                       1.8rem

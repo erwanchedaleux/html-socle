@@ -1,0 +1,205 @@
+/***************************************/
+
+.article
+    h1
+    .title-1
+        font-size                       3.4rem
+        text-transform                  uppercase
+        color                           $color3
+        font-b()
+
+    h2
+    .title-2
+        font-size                       3rem
+        line-height                     1.2
+        color                           $color4
+        margin-top                      20px
+        margin-bottom                   10px
+        font-b()
+
+    h3
+    .title-3
+        font-size                       1.8rem
+        text-transform                  uppercase
+        color                           $color5
+        font-b()
+
+    h4
+    .title-4
+        font-size                       2.2rem
+        color                           $color5
+        font-sb()
+
+    h5
+    .title-5
+        font-size                       2rem
+        font-style                      italic
+        color                           $color6
+        font-b()
+
+    h6
+    .title-6
+        font-size                       1.8rem
+        font-l()
+
+    p
+        margin-bottom                   10px
+        font-size                       1.4rem
+
+    .intro
+        padding                         20px
+        border-radius                   0
+        border-radius                   3px
+        font-style                      italic
+        color                           $color3
+        text-align                      center
+        font-b()
+
+    ul
+        margin-bottom                   10px
+        list-style                      disc inside
+        font-size                       1.4rem
+
+    li
+        display                         list-item
+        padding-left                    30px
+        text-indent                     -18px
+
+    a
+        color                           $color3
+        text-decoration                 underline
+
+        &:hover
+            text-decoration             none
+
+    table
+        margin                          20px 0 30px 0
+
+        caption
+            margin-bottom               10px
+            text-align                  center
+            text-transform              uppercase
+            font-b()
+
+        thead
+            background-color            $color3
+
+        th
+            font-size                   1.4rem
+            text-align                  left
+            color                       $color2
+            padding                     5px
+            font-b()
+
+        tbody
+            tr:nth-child(odd)
+                background-color        $color8
+
+            tr:nth-child(even)
+                background-color        $color7
+
+            td
+                padding                 5px
+
+        .number
+            text-align                  right
+
+    pre
+        display                         block
+        margin-bottom                   20px
+
+        code
+            display                     block
+            padding                     10px
+            background-color            $color8
+            border                      1px solid $color7
+            border-radius               0
+            margin-bottom               10px
+            border-radius               3px
+            overflow                    auto
+
+    img
+        &.align-left
+        &.align-right
+            display                     block
+            width                       50%
+            margin                      0 auto 20px auto
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( max-width: $smallScreenContentMinWidth )
+
+    .article
+        table
+            width                       100%
+
+/* Mediaqueries Tablet ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .article
+        h1
+            font-size                   4rem
+
+        h2
+            font-size                   3.4rem
+
+        h3
+            font-size                   2.3rem
+
+        h4
+            font-size                   2.8rem
+
+        h5
+            font-size                   2.4rem
+
+        h6
+            font-size                   2rem
+
+        p
+            font-size                   1.5rem
+
+        ul
+            font-size                   1.4rem
+
+        table
+            margin-left                 auto
+            margin-right                auto
+
+            caption
+                font-size               1.8rem
+
+            th
+                padding                 10px
+                border-right            1px solid $color2
+
+                &:last-child
+                    border-right        none
+
+            tbody
+                td
+                    padding             10px
+                    border-right        1px solid $color2
+
+                    &:last-child
+                        border-right    none
+
+        pre
+            code
+                font-size                1.2rem
+
+        img
+            &.align-left
+                width                    auto
+                float                    left
+                margin-right             20px
+
+            &.align-right
+                width                    auto
+                float                    right
+                margin-left              20px
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )

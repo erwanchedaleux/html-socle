@@ -1,0 +1,12 @@
+{
+    "content": {
+        "innerWidth":                       960,
+        "smallScreenMinWidth":              639,
+        "smallScreenMaxWidth":              640,
+        "mediumScreenMinWidth":             959,
+        "mediumScreenMaxWidth":             960,
+        "largeScreenMinWidth":              1399,
+        "largeScreenMaxWidth":              1400
+    }
+
+}

@@ -1,0 +1,16 @@
+{
+  "extends":                            "eslint:recommended",
+  "rules": {
+    "no-console":                       "off"
+  },
+  "env": {
+        "browser":                      true,
+        "amd":                          true
+    },
+    "globals": {
+        "ActiveXObject":                true,
+        "console":                      true,
+        "module":                       true,
+        "Modernizr":                    true
+    }
+}
