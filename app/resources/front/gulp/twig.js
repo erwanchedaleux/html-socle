@@ -1,5 +1,5 @@
 module.exports = function( gulp, pkg, config ) {
-    var twig, semver, rename, plumber, filter, htmlbeautify;
+    var twig, semver, rename, plumber, filter, htmlbeautify, pkge;
 
     twig                                = require( 'gulp-twig' );
     semver                              = require( 'semver' );
@@ -7,11 +7,13 @@ module.exports = function( gulp, pkg, config ) {
     plumber                             = require( 'gulp-plumber' );
     filter                              = require( 'gulp-filter' );
     htmlbeautify                        = require( 'gulp-html-beautify' );
+    fs                                  = require( 'fs' );
 
-    function htmlRendering( version ) {
+
+    function htmlRendering( pkg ) {
         return gulp
             .src( [
-                config.path.resources.src + '*.twig',
+                config.path.resources.src + '*.twig'
             ] )
             .pipe( plumber() )
             .pipe( filter( [
@@ -22,14 +24,24 @@ module.exports = function( gulp, pkg, config ) {
             ] ) )
             .pipe( twig( {
                 data: {
-                    version: version
+                    version: pkg.version,
+                    debug: pkg.debug,
+                    maintenance_mode: pkg.maintenance_mode,
+                    keywords: pkg.keywords,
+                    twitter_name: pkg.twitter_name,
+                    locale: pkg.locale,
+                    title: pkg.title,
+                    domain: pkg.name
                 }
             } ) )
             .pipe( rename( { extname: '.html' } ) );
     }
 
     gulp.task( 'render-html', function() {
-        return htmlRendering( Date.now() )
+        pkg                             = JSON.parse( fs.readFileSync( './package.json' ) );
+        pkg.version                     = Date.now();
+
+        return htmlRendering( pkg )
             .pipe( htmlbeautify( {
                     "indent_char": '\t',
                     "indent_size": 1
@@ -40,7 +52,9 @@ module.exports = function( gulp, pkg, config ) {
     );
 
     gulp.task( 'render-html-optimization', function() {
-        return htmlRendering( pkg.version )
+        pkg                             = JSON.parse( fs.readFileSync( './package.json' ) );
+
+        return htmlRendering( pkg )
             .pipe( htmlbeautify( {
                     "indent_char": '\t',
                     "indent_size": 1,

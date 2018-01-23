@@ -1,6 +1,65 @@
 <!DOCTYPE html>
-<html lang="" class="no-js">
+<html lang="{{ (locale ? locale : '') }}" class="no-js">
     <head>
+        {%- set current_url = domain %}
+        {%- set dev_mode = ('dev.' ~ domain in current_url ? 'true' : 'false') %}
+        {%- set site_title = (title ? title : '') %}
+        {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags ~ ' | ' ~ title : (title ? title : '')) %}
+        {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (description is defined ? description : '')) %}
+        {%- set meta_keywords = (keywords ? keywords : '') %}
+        {%- set twitter_name = (twitter_name ? twitter_name : '') %}
+        {%- set twitter_image = '' %}
+        {%- set og_image = '' %}
+        {%- set site_logo = 'logo-html-socle' %}
+
+        {%- if not debug and dev_mode == 'false' -%}
+            {# Start Googke Tag Manager #}
+            {# End Googke Tag Manager #}
+        {%- endif -%}
+
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {#<link rel="alternate" hreflang="fr" href="{{ current_url }}/"/>#}
+
+        <title>{{ meta_title|raw }}</title>
+        {%- if not debug and dev_mode == 'false' -%}
+            {# Start Meta Google site verification #}
+            {# End Meta Google site verification #}
+        {%- endif -%}
+        <meta name="description" content="{{ meta_description|raw }}">
+        <meta name="keywords" content="{{ meta_keywords }}">
+        <meta name="robots" content="{{ (dev_mode is not defined ? 'noindex, nofollow' : 'index, follow') }}">
+
+        {# OPENGRAPH #}
+        {%- block opengraph_meta -%}
+            <meta property="og:site_name" content="{{ site_title|raw }}">
+            <meta property="og:locale" content="fr_FR">
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{ current_url }}">
+            <meta property="og:title" content="{{ meta_title }}">
+            <meta property="og:description" content="{{ meta_description|raw }}">
+            <meta property="og:image" content="{{ og_image }}">
+        {% endblock opengraph_meta %}
+
+        {# TWITTER #}
+        {%- block twitter_meta -%}
+            {%- if twitter_name is not empty -%}
+                <meta name="twitter:card" content="sharing_twitter_card">
+                <meta name="twitter:site" content="@{{ twitter_name }}">
+                <meta name="twitter:url" content="{{ current_url }}">
+                <meta name="twitter:title" content="{{ meta_title }}">
+                <meta name="twitter:description" content="{{ meta_description|raw }}">
+                <meta name="twitter:image" content="{{ twitter_image }}">
+            {% endif %}
+        {% endblock twitter_meta %}
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!--[if IEMobile]><meta http-equiv="cleartype" content="on" /><![endif]-->
 
     </head>
     <body>

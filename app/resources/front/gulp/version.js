@@ -1,12 +1,9 @@
 module.exports = function( gulp, pkg, config ) {
-    var bump, semver, merge, replace, saveFIle;
+    var bump, semver, merge, refresh;
 
     bump                                = require( 'gulp-bump' );
     semver                              = require( 'semver' );
     merge                               = require( 'merge-stream' );
-
-    replace                             = require( 'gulp-replace' );
-    savefile                            = require( 'gulp-savefile' );
 
 
     function UpdateVersion( newVer ) {
