@@ -1,0 +1,3 @@
+{%- macro asset( src, domain, version ) %}
+  {{- domain ~ '/' ~ src ~ '?' ~ version -}}
+{% endmacro %}

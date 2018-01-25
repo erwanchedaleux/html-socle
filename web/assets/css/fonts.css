@@ -5,45 +5,4 @@
  *  
 */
 
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-light-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-light-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-light-webfont.ttf?eri2lx") format('truetype');
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-lightitalic-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-lightitalic-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-lightitalic-webfont.ttf?eri2lx") format('truetype');
-  font-style: italic;
-  font-weight: 300;
-}
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-regular-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-regular-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-regular-webfont.ttf?eri2lx") format('truetype');
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-regularitalic-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-regularitalic-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-regularitalic-webfont.ttf?eri2lx") format('truetype');
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-bold-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-bold-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-bold-webfont.ttf?eri2lx") format('truetype');
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'lato';
-  font-display: swap;
-  src: url("/assets/media/fonts/lato-bolditalic-webfont.woff?eri2lx") format('woff'), url("/assets/media/fonts/lato-bolditalic-webfont.woff2?eri2lx") format('woff2'), url("/assets/media/fonts/lato-bolditalic-webfont.ttf?eri2lx") format('truetype');
-  font-style: italic;
-  font-weight: 700;
-}
+@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-light-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-light-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-light-webfont.ttf?eri2lx) format('truetype');font-style:normal;font-weight:300}@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-lightitalic-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-lightitalic-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-lightitalic-webfont.ttf?eri2lx) format('truetype');font-style:italic;font-weight:300}@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-regular-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-regular-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-regular-webfont.ttf?eri2lx) format('truetype');font-style:normal;font-weight:400}@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-regularitalic-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-regularitalic-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-regularitalic-webfont.ttf?eri2lx) format('truetype');font-style:italic;font-weight:400}@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-bold-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-bold-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-bold-webfont.ttf?eri2lx) format('truetype');font-style:normal;font-weight:700}@font-face{font-family:lato;font-display:swap;src:url(/assets/media/fonts/lato-bolditalic-webfont.woff?eri2lx) format('woff'),url(/assets/media/fonts/lato-bolditalic-webfont.woff2?eri2lx) format('woff2'),url(/assets/media/fonts/lato-bolditalic-webfont.ttf?eri2lx) format('truetype');font-style:italic;font-weight:700}

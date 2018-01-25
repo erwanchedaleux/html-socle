@@ -1,18 +1,25 @@
+{% import "_macros/_asset.twig" as macros %}
+
 <!DOCTYPE html>
 <html lang="{{ (locale ? locale : '') }}" class="no-js">
     <head>
-        {%- set current_url = domain %}
-        {%- set dev_mode = ('dev.' ~ domain in current_url ? 'true' : 'false') %}
-        {%- set site_title = (title ? title : '') %}
-        {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags ~ ' | ' ~ title : (title ? title : '')) %}
-        {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (description is defined ? description : '')) %}
-        {%- set meta_keywords = (keywords ? keywords : '') %}
-        {%- set twitter_name = (twitter_name ? twitter_name : '') %}
-        {%- set twitter_image = '' %}
-        {%- set og_image = '' %}
-        {%- set site_logo = 'logo-html-socle' %}
+        {%- set current_domain      = 'http://' ~ domain %}
+        {%- set current_url         = current_domain ~ '/' ~ page %}
+        {%- set dev_mode            = ('dev.' in domain ? true : false) %}
+        {%- set site_title          = (title ? title : '') %}
+        {%- set meta_title          = (meta_title_override is defined ? meta_title_override|striptags ~ ' | ' ~ title : (title ? title : '')) %}
+        {%- set meta_description    = (meta_description_override is defined ? meta_description_override|striptags : (description is defined ? description : '')) %}
+        {%- set meta_keywords       = (keywords ? keywords : '') %}
+        {%- set twitter_name        = (twitter_name ? twitter_name : '') %}
+        {%- set twitter_image       = '' %}
+        {%- set og_image            = '' %}
+        {%- set site_logo           = 'logo-html-socle' %}
 
-        {%- if not debug and dev_mode == 'false' -%}
+        {%- set critical_css        = true %}
+        {%- set font_loading        = true %}
+        {%- set js                  = true %}
+
+        {%- if not debug and not dev_mode -%}
             {# Start Googke Tag Manager #}
             {# End Googke Tag Manager #}
         {%- endif -%}
@@ -33,7 +40,7 @@
         {# OPENGRAPH #}
         {%- block opengraph_meta -%}
             <meta property="og:site_name" content="{{ site_title|raw }}">
-            <meta property="og:locale" content="fr_FR">
+            <meta property="og:locale" content="{{ (locale ? locale ~ '_' ~ locale|upper : '') }}">
             <meta property="og:type" content="website">
             <meta property="og:url" content="{{ current_url }}">
             <meta property="og:title" content="{{ meta_title }}">
@@ -61,10 +68,110 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <!--[if IEMobile]><meta http-equiv="cleartype" content="on" /><![endif]-->
 
+        <link rel="sitemap" type="applicaticon/xml" title="Sitemap" href="{{ macros.asset('sitemap.xml', current_domain, version) }}" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ macros.asset('assets/media/img/apple-icon-57x57.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ macros.asset('assets/media/img/apple-icon-60x60.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ macros.asset('assets/media/img/apple-icon-72x72.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ macros.asset('assets/media/img/apple-icon-76x76.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ macros.asset('assets/media/img/apple-icon-114x114.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ macros.asset('assets/media/img/apple-icon-120x120.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ macros.asset('assets/media/img/apple-icon-144x144.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ macros.asset('assets/media/img/apple-icon-152x152.png', current_domain, version) }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ macros.asset('assets/media/img/apple-icon-180x180.png', current_domain, version) }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ macros.asset('assets/media/img/android-icon-192x192.png', current_domain, version) }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ macros.asset('assets/media/img/favicon-32x32.png', current_domain, version) }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ macros.asset('assets/media/img/favicon-96x96.png', current_domain, version) }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ macros.asset('assets/media/img/favicon-16x16.png', current_domain, version) }}">
+        <link rel="manifest" href="{{ macros.asset('system/manifest.json', current_domain, version) }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ macros.asset('assets/media/img/ms-icon-144x144.png', current_domain, version) }}">
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="theme-color" content="#ffffff">
+
+        {# OLD BROWSER REDIRECT #}
+        {%- block old_browser -%}
+            {% if js %}
+                <script>(function(){var a=document.documentElement;a&&(a.className=a.className.replace((new RegExp('(^|\\s)no-js(\\s|$)')),'$1js$2'));}());{% if debug %}var $$DEBUG$$=true;{% endif %}window.OLD_BROWSER_URL='old-browser.html';</script>
+            {% endif %}
+        {% endblock old_browser %}
+
+        {# INLINE STYLESHEETS #}
+        {%- block inline_stylesheets -%}
+            {%- if debug or critical_css -%}
+                <link rel="stylesheet" href="{{ macros.asset('system/inlinecss.css', current_domain, version) }}">
+            {%- elseif critical_css -%}
+                <style>{% include '../../../../web/system/inlinecss.css' %}</style>
+            {% endif %}
+        {% endblock inline_stylesheets %}
+
+        {# STYLESHEETS #}
+        {%- block stylesheets -%}
+            {%- if debug and font_loading -%}
+                <link rel="stylesheet" href="{{ macros.asset('assets/css/fonts.css', current_domain, version) }}">
+            {% endif -%}
+            {% if js %}
+                <link rel="preload" href="{{ macros.asset('assets/css/styles.css', current_domain, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
+                <noscript><link rel="stylesheet" href="{{ macros.asset('assets/css/styles.css', current_domain, version) }}"></noscript>
+                <link rel="preload" href="{{ macros.asset('assets/css/images.css', current_domain, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
+                <noscript><link rel="stylesheet" href="{{ macros.asset('assets/css/images.css', current_domain, version) }}"></noscript>
+            {% else %}
+                <link rel="stylesheet" href="{{ macros.asset('assets/css/styles.css', current_domain, version) }}">
+                <link rel="stylesheet" href="{{ macros.asset('assets/css/images.css', current_domain, version) }}">
+            {% endif %}
+            {%- if dev_mode -%}
+                <link rel="stylesheet" href="{{ macros.asset('assets/css/debug-bar.css', current_domain, version) }}">
+            {% endif -%}
+        {% endblock stylesheets %}
+
+        {# INLINE JS #}
+        {%- block inline_js -%}
+            {%- if js -%}
+                <script>
+                    {%- if debug -%}
+                        {% include "../../../../web/system/inlinejs-dev.js" %}
+                    {%- else -%}
+                        {% include "../../../../web/system/inlinejs-prod.js" %}
+                    {% endif %}
+                </script>
+            {% endif %}
+        {% endblock inline_js -%}
+
+        {# FONTS LOADING #}
+        {%- block fonts -%}
+            {%- if not debug and font_loading -%}
+                <script>
+                    window.siteStarter.getFile('{{ macros.asset('assets/css/fonts.css', current_domain, version) }}');
+                </script>
+                <noscript><link rel="stylesheet" href="{{ macros.asset('assets/css/fonts.css', current_domain, version) }}"></noscript>
+            {% endif %}
+        {% endblock fonts %}
+
+        {# MAIN JAVACRIPTS #}
+        {%- block main_javascripts -%}
+            {%- if js -%}
+                <script defer src="{{ macros.asset('system/config.js', current_domain, version) }}"></script>
+                <script defer src="{{ macros.asset('assets/js/main.js', current_domain, version) }}"></script>
+            {% endif %}
+        {% endblock main_javascripts %}
+
+        {# HEAD JAVASCRIPTS #}
+        {%- block head_javascripts -%}
+            {%- if debug and js -%}
+                <script defer src="{{ macros.asset('assets/js/polyfill/picturefill.js', current_domain, version) }}"></script>
+                <script defer src="{{ macros.asset('assets/js/lib.js', current_domain, version) }}"></script>
+                <script defer src="{{ macros.asset('assets/js/scripts.js', current_domain, version) }}"></script>
+            {% endif %}
+            {% block extra_head_javascripts '' %}
+        {% endblock head_javascripts %}
     </head>
     <body>
         {%- block body %}
             {% block global_content '' %}
+            {%- if dev_mode -%}
+                {% block debug %}
+                    {% include 'partials/_debug.twig' %}
+                {% endblock debug %}
+            {% endif %}
         {% endblock body %}
     </body>
 </html>

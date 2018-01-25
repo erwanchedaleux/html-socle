@@ -5,7 +5,7 @@ module.exports = ( function ( $ ) {
         var $btnClose,
             COOKIES_ACTIVE_CLS, COOKIES_NAME, COOKIES_VALUE;
 
-        $btnClose                       = $cookies.find( '.scb-close' );
+        $btnClose                       = $cookies.find( '.sco-close' );
 
         COOKIES_ACTIVE_CLS              = 'active';
         COOKIES_NAME                    = 'use_of_cookies';

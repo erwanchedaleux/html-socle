@@ -1,18 +1,18 @@
 {
     "name":                             "dev.html-socle",
     "title":                            "Socle HTML",
-    "description":                      "",
+    "locale":                           "fr",
+    "description":                      "An HTML Socle based on auto generation pages with Gulp. Bootup, Critical CSS, Modernizr, jQuery, jQueryCookie, LazySizes, Picturefill",
+    "keywords":                         "html, socle, css, js, gulp",
+    "twitter_name":                     "html-socle",
     "version":                          "0.0.1",
+    "debug":                            false, 
     "homepage":                         "",
     "author": {
         "name":                         "Erwan Chedaleux",
         "email":                        "erwan.chedaleux@gmail.com",
         "url":                          "http://www.erwan-chedaleux.fr/"
     },
-    "locale":                           "fr",
-    "twitter_name":                     "TWITTER_NAME",
-    "debug":                            true, 
-    "keywords":                         "KEYWORDS_LIST",
     "repository": {
         "type":                         "git",
         "url":                          "git@github.com:erwanchedaleux/html-socle.git"

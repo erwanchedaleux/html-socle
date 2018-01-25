@@ -1,0 +1,26 @@
+<div class="mod-debug">
+    <ul class="md-list">
+        <li class="md-itm md-itm_title">
+            <strong>{{ title }}</strong>
+        </li>
+        <li class="md-itm md-itm_version">
+            Version: <strong>{{ version }}</strong>
+        </li>
+        <li class="md-itm md-itm_debug_{{ debug }}">
+            Debug: <strong>{{ debug }}</strong>
+        </li>
+        <li class="md-itm md-itm_domain">
+            Domaine: <strong><a href="{{ current_domain ~ '/' ~ page }}" class="md-lnk">{{ current_domain ~ '/<span class="highlight">' ~ page ~ '</span>' }}</a></strong>
+        </li>
+        <li class="md-itm md-itm_files_{{ critical_css }}">
+            Critical CSS
+        </li>
+        <li class="md-itm md-itm_files_{{ font_loading }}">
+            Font loading
+        </li>
+        <li class="md-itm md-itm_files_{{ js }}">
+            JavaScript
+        </li>
+    </ul>
+    <button class="md-btn" onclick="this.parentNode.classList.toggle('hidden')">Fermer</button>
+</div>

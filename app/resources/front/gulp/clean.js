@@ -1,16 +1,16 @@
 module.exports = function( gulp, pkg, config ) {
-    var cleanTask;
+    var clean;
 
-    cleanTask                           = require( 'gulp-clean' );
+    clean                               = require( 'gulp-clean' );
 
 
     gulp.task( 'clean',  function() {
         return gulp
             .src( [
-                config.path.web.js,
-                config.path.web.css
+                config.path.web.js + '*.js',
+                config.path.web.css + '*.css'
             ], { "read": false } )
-            .pipe( cleanTask( { "force": true } ) );
+            .pipe( clean( { "force": true } ) );
     } );
 
     gulp.task( 'clean-inlinecss',  function() {
@@ -18,7 +18,7 @@ module.exports = function( gulp, pkg, config ) {
             .src( [
                 config.path.web.system + 'inlinecss.css'
             ], { "read": false } )
-            .pipe( cleanTask( { "force": true } ) );
+            .pipe( clean( { "force": true } ) );
     } );
 
 };

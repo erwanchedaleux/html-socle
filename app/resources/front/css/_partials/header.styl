@@ -1,13 +1,25 @@
 /***************************************/
 
+.site-header
+    background-color                    $color3
+    color                               $color2
+    height                              $headerHeight
 
 /* Mediaqueries Tablet ( >= 640px) */
-// @media all and ( min-width: $smallScreenContentMaxWidth )
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-header
+        height                          $headerHeightTablet
 
 
 /* Mediaqueries Desktop ( >= 960px) */
-// @media all and ( min-width: $mediumScreenContentMaxWidth )
+@media all and ( min-width: $mediumScreenContentMaxWidth )
 
+    .site-header
+        height                          $headerHeightDesktop
 
 /* Mediaqueries Large ( >= 1400px) */
-// @media all and ( min-width: $largeScreenContentMaxWidth )
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .site-header
+        height                          $headerHeightLarge

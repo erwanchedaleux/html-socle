@@ -1,0 +1,100 @@
+/***************************************/
+
+.mod-debug
+    position                            fixed
+    bottom                              0
+    left                                0
+    width                               100%
+    background-color                    $color5
+    transform-origin                    right bottom
+    transition3()
+
+    &.hidden
+        transform                       translateY(-37px) rotate(-90deg)
+
+        .md-btn
+            &:before
+                transform               translateX(-3px) rotate(90deg)
+
+            &:after
+                transform               translateX(3px) rotate(-90deg)
+
+
+.md-list
+    padding                             0 10px
+
+.md-itm
+    display                             inline-block
+    color                               $color2
+    padding                             10px
+
+.md-itm_title
+    background-color                    lightness($color5, 17%)
+
+.md-itm_debug_true
+    background-color                    $errorColor
+
+.md-itm_debug_false
+    background-color                    $successColor
+
+.md-itm_domain
+    .highlight
+        color                           rgba($color2, 0.6)
+
+.md-itm_files_true
+    color                               $successColor
+    background-color                    lightness($color5, 20%)
+
+.md-itm_files_false
+    color                               $errorColor
+    background-color                    lightness($color5, 20%)
+
+.md-lnk
+    color                               $color2
+
+    &:hover
+        text-decoration                 underline
+
+.md-btn
+    position                            absolute
+    top                                 0
+    right                               0
+    background-color                    transparent
+    border                              none
+    width                               15px
+    height                              @width
+    padding                             10px
+    box-sizing                          content-box
+    cursor                              pointer
+    hide-text()
+    transition3()
+
+    &:hover
+        &:before
+        &:after
+            background-color           $color2
+
+    &:before
+    &:after
+        content                         ""
+        position                        absolute
+        left                            0
+        display                         block
+        width                           15px
+        height                          2px
+        background-color                rgba($color2, 0.8)
+        top                             16px
+        left                            10px
+
+    &:before
+        transform                       rotate(45deg)
+
+    &:after
+        transform                       rotate(-45deg)
+
+
+/* Mediaqueries Tablet ( <= 639px) */
+@media all and ( max-width: $smallScreenContentMinWidth )
+
+    .mod-debug
+        display                         none

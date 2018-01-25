@@ -1,13 +1,26 @@
 /***************************************/
 
+.site-footer
+    background-color                    $color6
+    color                               $color2
+    height                              $footerHeight
 
 /* Mediaqueries Tablet ( >= 640px) */
-// @media all and ( min-width: $smallScreenContentMaxWidth )
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-footer
+        height                          $footerHeightTablet
 
 
 /* Mediaqueries Desktop ( >= 960px) */
-// @media all and ( min-width: $mediumScreenContentMaxWidth )
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .site-footer
+        height                          $footerHeightDesktop
 
 
 /* Mediaqueries Large ( >= 1400px) */
-// @media all and ( min-width: $largeScreenContentMaxWidth )
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .site-footer
+        height                          $footerHeightLarge

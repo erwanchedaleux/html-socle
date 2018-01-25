@@ -1,5 +1,5 @@
 module.exports = function( gulp, pkg, config ) {
-    var twig, semver, rename, plumber, filter, htmlbeautify, pkge;
+    var twig, semver, rename, plumber, filter, htmlbeautify, pkge, output;
 
     twig                                = require( 'gulp-twig' );
     semver                              = require( 'semver' );
@@ -7,7 +7,10 @@ module.exports = function( gulp, pkg, config ) {
     plumber                             = require( 'gulp-plumber' );
     filter                              = require( 'gulp-filter' );
     htmlbeautify                        = require( 'gulp-html-beautify' );
+    debug                               = require( 'gulp-debug' );
     fs                                  = require( 'fs' );
+
+    outputNameFile                      = '';
 
 
     function htmlRendering( pkg ) {
@@ -22,6 +25,11 @@ module.exports = function( gulp, pkg, config ) {
                 '!' + config.path.resources.src + '_*.twig',
                 '!' + config.path.resources.src + '*/_*.twig'
             ] ) )
+            .pipe(
+                rename( function( path ) {
+                    outputNameFile      = path.basename + '.html';
+                } )
+            )
             .pipe( twig( {
                 data: {
                     version: pkg.version,
@@ -31,7 +39,11 @@ module.exports = function( gulp, pkg, config ) {
                     twitter_name: pkg.twitter_name,
                     locale: pkg.locale,
                     title: pkg.title,
-                    domain: pkg.name
+                    description: pkg.description,
+                    domain: pkg.name,
+                    page: function () {
+                        return outputNameFile;
+                    }
                 }
             } ) )
             .pipe( rename( { extname: '.html' } ) );

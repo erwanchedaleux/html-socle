@@ -1,0 +1,8 @@
+/*!
+ *  Socle HTML
+ *  @author: Erwan Chedaleux
+ *  @version: 0.0.1
+ *  
+*/
+
+.md-btn,.mod-debug{transition:all .5s ease}.mod-debug{position:fixed;bottom:0;left:0;width:100%;background-color:#39393b;-webkit-transform-origin:right bottom;transform-origin:right bottom}.mod-debug.hidden{-webkit-transform:translateY(-37px) rotate(-90deg);transform:translateY(-37px) rotate(-90deg)}.mod-debug.hidden .md-btn:before{-webkit-transform:translateX(-3px) rotate(90deg);transform:translateX(-3px) rotate(90deg)}.mod-debug.hidden .md-btn:after{-webkit-transform:translateX(3px) rotate(-90deg);transform:translateX(3px) rotate(-90deg)}.md-list{padding:0 10px}.md-itm{display:inline-block;color:#fff;padding:10px}.md-itm_title{background-color:#2b2b2c}.md-itm_debug_true{background-color:#c93c3c}.md-itm_debug_false{background-color:#39a539}.md-itm_domain .highlight{color:rgba(255,255,255,.6)}.md-itm_files_true{color:#39a539;background-color:#323234}.md-itm_files_false{color:#c93c3c;background-color:#323234}.md-lnk{color:#fff}.md-lnk:hover{text-decoration:underline}.md-btn{position:absolute;top:0;right:0;background-color:transparent;border:none;width:15px;height:15px;padding:10px;box-sizing:content-box;cursor:pointer;color:transparent;font:0/0;text-shadow:none}.md-btn:hover:after,.md-btn:hover:before{background-color:#fff}.md-btn:after,.md-btn:before{content:"";position:absolute;display:block;width:15px;height:2px;background-color:rgba(255,255,255,.8);top:16px;left:10px}.md-btn:before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.md-btn:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}@media all and (max-width:639px){.mod-debug{display:none}}
