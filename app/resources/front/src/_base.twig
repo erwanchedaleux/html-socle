@@ -139,9 +139,7 @@
         {# FONTS LOADING #}
         {%- block fonts -%}
             {%- if not debug and font_loading -%}
-                <script>
-                    window.siteStarter.getFile('{{ macros.asset('assets/css/fonts.css', current_domain, version) }}');
-                </script>
+                <script>window.siteStarter.getFile('{{ macros.asset('assets/css/fonts.css', current_domain, version) }}');</script>
                 <noscript><link rel="stylesheet" href="{{ macros.asset('assets/css/fonts.css', current_domain, version) }}"></noscript>
             {% endif %}
         {% endblock fonts %}
