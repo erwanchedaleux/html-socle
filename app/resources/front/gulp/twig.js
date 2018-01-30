@@ -1,5 +1,5 @@
 module.exports = function( gulp, pkg, config ) {
-    var twig, semver, rename, plumber, filter, htmlbeautify, pkge, output;
+    var twig, semver, rename, plumber, filter, htmlbeautify, debug, fs, htmlmin, outputNameFile;
 
     twig                                = require( 'gulp-twig' );
     semver                              = require( 'semver' );
@@ -9,6 +9,7 @@ module.exports = function( gulp, pkg, config ) {
     htmlbeautify                        = require( 'gulp-html-beautify' );
     debug                               = require( 'gulp-debug' );
     fs                                  = require( 'fs' );
+    htmlmin                             = require( 'gulp-htmlmin' );
 
     outputNameFile                      = '';
 
@@ -56,7 +57,8 @@ module.exports = function( gulp, pkg, config ) {
         return htmlRendering( pkg )
             .pipe( htmlbeautify( {
                     "indent_char": '\t',
-                    "indent_size": 1
+                    "indent_size": 1,
+                    "end_with_newline": true
                 } )
             )
             .pipe( gulp.dest( config.path.web.base ) );
@@ -70,6 +72,7 @@ module.exports = function( gulp, pkg, config ) {
             .pipe( htmlbeautify( {
                     "indent_char": '\t',
                     "indent_size": 1,
+                    "end_with_newline": true,
                     "max_preserve_newlines": 0,
                     "unformatted": [
                         "style",
@@ -78,6 +81,7 @@ module.exports = function( gulp, pkg, config ) {
                     ]
                 } )
             )
+            .pipe( htmlmin( { collapseWhitespace: true } ) )
             .pipe( gulp.dest( config.path.web.base ) );
         }
     );

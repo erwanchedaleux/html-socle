@@ -10,7 +10,6 @@
             "src"                       : "src/"
         },
         "web":  {
-            "web"                       : "../../../web/", 
             "base"                      : "../../../web/",
             "system"                    : "../../../web/system/",
             "js"                        : "../../../web/assets/js/",

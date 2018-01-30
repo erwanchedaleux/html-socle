@@ -55,7 +55,6 @@
         "html-minifier":                "3.4.2",
         "gulp-modernizr":               "1.0.0-alpha",
 
-        "gulp-htmllint":                "0.0.12",
         "gulp-watch":                   "4.3.9",
         "gulp-savefile":                "0.1.1",
 
@@ -74,6 +73,8 @@
         "gulp-plumber":                 "1.1.0",
         "gulp-rename":                  "1.2.2",
         "gulp-plumber":                 "1.1.0",
+        "gulp-htmlhint":                "2.0.0",
+        "gulp-htmlmin":                 "4.0.0",
 
         "jquery":                       "3.2.1",
         "jquery.cookie":                "1.4.1",

@@ -3,7 +3,13 @@
 <!DOCTYPE html>
 <html lang="{{ (locale ? locale : '') }}" class="no-js">
     <head>
-        {%- set current_domain      = 'http://' ~ domain %}
+        {%- set absolute_path       = true %}
+        {%- set critical_css        = true %}
+        {%- set font_loading        = true %}
+        {%- set js                  = true %}
+        {%- set old_browser         = true %}
+        
+        {%- set current_domain      = (absolute_path ? 'http://' ~ domain : '' ) %}
         {%- set current_url         = current_domain ~ '/' ~ page %}
         {%- set dev_mode            = ('dev.' in domain ? true : false) %}
         {%- set site_title          = (title ? title : '') %}
@@ -14,10 +20,6 @@
         {%- set twitter_image       = '' %}
         {%- set og_image            = '' %}
         {%- set site_logo           = 'logo-html-socle' %}
-
-        {%- set critical_css        = true %}
-        {%- set font_loading        = true %}
-        {%- set js                  = true %}
 
         {%- if not debug and not dev_mode -%}
             {# Start Googke Tag Manager #}
@@ -90,7 +92,7 @@
 
         {# OLD BROWSER REDIRECT #}
         {%- block old_browser -%}
-            {% if js %}
+            {% if js and old_browser %}
                 <script>(function(){var a=document.documentElement;a&&(a.className=a.className.replace((new RegExp('(^|\\s)no-js(\\s|$)')),'$1js$2'));}());{% if debug %}var $$DEBUG$$=true;{% endif %}window.OLD_BROWSER_URL='old-browser.html';</script>
             {% endif %}
         {% endblock old_browser %}

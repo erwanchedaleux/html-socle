@@ -21,6 +21,12 @@
         <li class="md-itm md-itm_files_{{ js }}">
             JavaScript
         </li>
+        <li class="md-itm md-itm_files_{{ old_browser }}">
+            Old Browser
+        </li>
+        <li class="md-itm md-itm_files_{{ absolute_path }}">
+            {{ (absolute_path ? 'Absolute' : 'Relative') }} Path
+        </li>
     </ul>
     <button class="md-btn" onclick="this.parentNode.classList.toggle('hidden')">Fermer</button>
 </div>

@@ -34,7 +34,7 @@ module.exports = function( gulp, pkg, config ) {
     gulp.task( 'watchTwig', function() {
         gulp.watch( [
                 config.path.resources.src + '**/*.twig'
-            ], gulp.series( 'render-html', 'notifyTwig' ) );
+            ], gulp.series( 'render-html', 'validateHtml', 'notifyTwig' ) );
     } );
 
 };
